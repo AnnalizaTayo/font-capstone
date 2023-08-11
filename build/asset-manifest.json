@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.05552e2d.css",
+    "main.js": "/static/js/main.ce87aaf3.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/dressBackground.png": "/static/media/dressBackground.512d107ff01a3d1f3231.png",
+    "static/media/blackGoldBg.png": "/static/media/blackGoldBg.73a7057176f4639e5c98.png",
+    "static/media/contact background.png": "/static/media/contact background.5d1989f95d95e4c053ac.png",
+    "static/media/customoutfits.svg": "/static/media/customoutfits.c28810b94617197c2427443046aa2572.svg",
+    "static/media/accs.svg": "/static/media/accs.f06495ebe8022dd72ff56c534c81bfed.svg",
+    "static/media/pretaporter.svg": "/static/media/pretaporter.9f611b56c74150b05ac5d04c1ea0b889.svg",
+    "index.html": "/index.html",
+    "main.05552e2d.css.map": "/static/css/main.05552e2d.css.map",
+    "main.ce87aaf3.js.map": "/static/js/main.ce87aaf3.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.05552e2d.css",
+    "static/js/main.ce87aaf3.js"
+  ]
+}
