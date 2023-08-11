@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300&family=Kaushan+Script&display=swap');
+@import '../global/globalColors.scss';
+
+#popup1 { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Karma;
+    color: $gray-color;
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    z-index: 1;
+    isolation: isolate;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+
+    .overlay {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left:0;
+        isolation: isolate;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    .popup {
+        background: #fff;
+        border-radius: 10px;
+        width: 40%;
+        height: auto;
+        position: fixed;
+        text-align: center;
+        padding: 3rem;
+
+        h2 { 
+            margin-top: 0; 
+        }
+
+        .close {
+            position: absolute; 
+            top: 0px;  
+            right: 0px; 
+            transition: all 200ms; 
+            font-size: 3rem;  
+            font-weight: normal; 
+            text-decoration: none;  
+            text-align: center;    
+            background: $primary-color;
+            border-radius: 10px;  
+            cursor: pointer;  
+            float: right;  
+            padding: 0;  
+            color: $gray-color;  
+            margin-top: 0;  
+            margin-right: 0;  
+            height: 40px;  
+            width: 40px;    
+            line-height: 45px;
+
+            p {
+                transform-origin: center center;
+                transition: transform 1s ease;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            p:hover {
+                color: $primary-color;
+                transform: rotate(180deg);
+            }
+        }
+
+        .close:hover {
+            background-color: $black-color;
+        }
+
+        .newletter-title {
+            h2 {   
+                font-size: 1.75rem;  
+                text-transform: uppercase;  
+                color: $gray-color;  
+                font-weight: 700;  
+                letter-spacing: 3px;  
+                margin: 0 0 15px;
+            }
+        }
+        
+        .box-content {
+            .text {  
+                font-weight: 400;
+                display: inline-block;  
+                margin: 1rem auto;  
+                font-size: 1rem;
+            }
+
+
+            form {
+                width: 100%;    
+                box-sizing: border-box;
+                
+                .inputs {
+                    margin: 1rem auto 1.25rem;
+                    width: 100%;    
+                    box-sizing: border-box;
+
+                    display: flex;
+                    flex-direction: column;
+                    
+        
+                    input#subscribe_pemail {   
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        margin-bottom: 10px; 
+                    }
+        
+                    label {
+                        display: block;
+                    }
+        
+                    .donotshow:checked {
+                        background-color:black !important;
+                    }
+                }
+        
+                button {
+                    cursor: pointer;
+                    background-color: $primary-color;
+                    border: none;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                }
+        
+                button:hover {
+                    background-color: $black-color;
+                    color: $primary-color;
+                }
+            }
+
+        }
+
+        
+
+
+
+    }
+}
+
+
+@media (max-width: 767px) {
+    #popup1 .popup {
+        background: #fff;
+        border-radius: 10px;
+        width: 70% !important;
+        height: auto;
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width: 412px) {
+    .popup {
+        width: 80% !important;
+    }
+
+}
+
+@media (orientation: landscape) and (max-height: 578px) {
+    #popup1.overlay {
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    #popup1 .popup {
+        width: 60% !important;
+        margin: 2rem auto;
+    }
+    
+}
+
+@media (orientation: landscape) and (max-height: 414px) {
+    .text {
+        margin: 0 !important;
+    }
+}
+
+@media (max-height: 280px) {
+    .popup {
+        margin: 0 !important;
+
+        .newletter-title {
+            h2 {   
+                font-size: 1.25rem !important;    
+                margin: 0 !important;
+            }
+        }
+        
+        .box-content {  
+            margin: 0 !important;  
+
+            p {
+                margin: 0 !important;
+            }
+
+            .inputs {
+                margin: 0 !important;
+            }
+
+            .error-message , .success-message, .warning-message {
+                margin: 0.5rem auto !important;
+            }
+        }
+
+        
+
+    }
+
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-out.hidden {
+    opacity: 0;
+}

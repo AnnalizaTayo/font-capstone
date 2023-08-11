@@ -1,0 +1,139 @@
+@import "../global/globalColors.scss";
+
+// Faqs.scss
+.faqs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .head-title {
+        margin: 2rem auto;
+        font-size: 4rem;
+        text-align: center;
+    }
+
+}
+.carousel-root {
+    margin: 0 auto 2rem;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1rem solid $primary-color;
+    
+    .carousel-slider {
+        .slide {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* Adjust the padding to your preference */
+            border-radius: 10px;
+            margin: auto;
+            max-width: 300px; /* Adjust the max-width to control the card's width */
+            min-height: fit-content; /* Ensure the slide takes the full height */
+    
+            h1 {
+                margin-bottom: 2rem;
+            }
+        
+            p {
+                font-size: 1.25rem;
+                font-family: 'Karma';
+            }
+        }
+        
+  }
+}
+
+@media (max-width: 1200px) {
+    .head-title{
+        margin: 1rem !important;
+        font-size: 3rem !important;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+
+
+    .head-title{
+            font-size: 2rem !important;
+    }
+
+    .carousel-root{
+        width: 70%;
+        .carousel-slider{
+            .slide{
+                
+                .question{
+                    font-size: 1.5rem !important ;
+                }
+                .answer{
+                    font-size: 1rem!important ;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 480px){
+    .head-title{
+        font-size: 2rem !important;
+        padding: 1rem;
+    }
+
+    .carousel-root{
+        width: 70%;
+        margin: 0 auto 3rem !important;
+        .carousel-slider{
+            .slider-wrapper.axis-horizontal {
+                .slide{
+                    margin: 0;
+                    height: 100%;
+                    
+                    
+                    .question{
+                        font-size: 1.5rem !important ;
+                    }
+                    .answer{
+                        font-size: 1rem!important ;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 280px) {
+
+    .head-title {
+        padding: 0;
+    }
+
+    .carousel-root{
+        width: 70%;
+        margin: 0 auto 3rem !important;
+        .carousel-slider{
+            .slider-wrapper.axis-horizontal {
+                .slide{
+                    margin: 1rem auto;
+                    padding: 0.75rem;
+                    height: 100%;
+                    
+                    
+                    .question{
+                        font-size: 1.25rem !important ;
+                    }
+                    .answer{
+                        font-size: 0.758rem!important ;
+                    }
+                }
+            }
+            
+        }
+    }
+}

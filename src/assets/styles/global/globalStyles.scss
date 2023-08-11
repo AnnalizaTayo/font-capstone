@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300&family=Kaushan+Script&display=swap');
+@import './globalColors.scss';
+@import './responsive.scss';
+
+/* general style */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.message, .message1 {
+    margin: 1rem;
+    border: 1px solid transparent;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.25rem;
+}
+
+@include sm {
+    .message1 {
+        display: none;
+    }
+}
+
+.success-message {
+    margin: 1rem auto;
+    color: #5cb85c;
+    border: 1px solid #5cb85c;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.25rem;
+    width: 100%;
+    font-family: 'Karma';
+    text-align: center;
+}
+
+.warning-meesage {
+    margin: 1rem auto;
+    color: #f0ad4e;
+    border: 1px solid #f0ad4e;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.25rem;
+    width: 100%;
+    font-family: 'Karma';
+    text-align: center;
+}
+
+.error-message {
+    margin: 1rem auto;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.25rem;
+    width: 100%;
+    font-family: 'Karma';
+    text-align: center;
+}
+
+
+
+.front-black , .front-white {
+    font-family: Kaushan Script;
+    background-color: $black-color;
+
+    main {
+        min-height: 100vh;
+    }
+
+    footer {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: $gray-color;
+        color: $primary-color;
+
+        .footer-img-logo {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 10rem;
+                width: 10rem;
+            }
+        }
+
+        .center {
+            border-top: 4px solid $primary-color;
+            border-bottom: 4px solid $primary-color;
+            padding: 1rem;
+
+            h1 {
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .footer-icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                padding-bottom: 1.5rem;
+
+                svg {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    fill: $primary-color;
+                    border-radius: 50%;
+                    padding: 0.5rem;
+                    border: 4px solid $primary-color;
+                }
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                }
+                
+                button:hover {
+                    cursor: pointer;
+                }
+            }        
+        }
+        
+        .footer-newsletter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .newsletter {
+                display: flex;
+                flex-direction: column;
+                padding: 2.5rem;
+                
+                .footer-newsletter-text {
+                    padding: 0.5rem 0 1rem;
+                }
+
+                .footer-email {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    form {
+                        display: grid;
+                        grid-template-columns: 2fr 1fr;
+                        height: 2rem;
+                        width: 100%;
+
+                        input {
+                            border: 1px solid $black-color;
+                            border-radius: 5px 0 0 5px;
+                        }
+
+                        button {
+                            background-color: $primary-color;
+                            color: $black-color;
+                            border: 1px solid $black-color;
+                            border-radius: 0 5px 5px 0;
+                        }
+
+                    }
+                }
+            }
+        }      
+        
+        @media (min-width: 150px) {
+            @media (max-width: 300px) {
+
+                .footer-img-logo {
+                    margin: 0;
+        
+                    img {
+                        height: 10rem;
+                        width: 10rem;
+                    }
+                }
+        
+                .center {
+                    padding: 0;
+                    margin: 0;
+
+                    h1 {
+                        padding: 0;
+                    }
+
+                    .footer-icons {
+                        gap: 0.25rem;
+        
+                        svg {
+                            padding: 0.3rem;
+                        }
+                    }  
+                }
+
+                .footer-newsletter {
+                    padding: 1.5rem;
+                    .newsletter {
+                        padding: 0;
+                        width: 100%;
+                    }
+                }
+                
+    
+            }
+            
+        }
+
+        @media only screen and (min-width: 600px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            .footer-img-logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .center {
+                border-right: 4px solid $primary-color;
+                border-left: 4px solid $primary-color;
+                border-top: none;
+                border-bottom: none;
+            }
+
+            @media only screen and (max-width: 850px) {
+                .footer-img-logo {        
+                    img {
+                        height: 8rem;
+                        width: 8rem;
+                    }
+                }
+    
+                .center {    
+                    h1 {
+                        padding: 1rem 0;
+                        font-size: 1.5rem;
+                    }
+    
+                    .footer-icons {
+                        gap: 0.75rem;
+        
+                        svg {
+                            padding: 0.3rem;
+                        }
+                    }      
+                }
+    
+                .footer-newsletter {   
+                    padding: 1rem 0; 
+    
+                    .newsletter {
+                        padding: 1rem;
+    
+                        h1 {
+                            font-size: 1.5rem;
+                        }
+                        
+                        .footer-newsletter-text {
+                            margin: 0.5rem 0 1rem;
+                            font-size: 0.9rem;
+                        }
+        
+                        .footer-email {
+                            width: fit-content!important;
+                            
+                            form {
+                                display: grid;
+                                height: 2rem;
+        
+                                button {
+                                    padding: 0.25rem;
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }   
+                    }    
+                }
+            }
+        }
+
+        /*Styles for desktop*/
+        @media only screen and (min-width: 768px) {
+
+            .footer-img-logo {        
+                img {
+                    height: 12rem;
+                    width: 12rem;
+                }
+            }
+        }
+
+        @media only screen and (min-width: 1600px) {
+
+            .footer-img-logo {
+
+                img {
+                    height: 15rem;
+                    width: 15rem;
+                }
+            }
+
+            .center {
+
+                h1 {
+                    text-align: center;
+                    font-size: 2.5rem;
+                }
+
+                .footer-icons {
+                    gap: 2rem;
+                    padding-bottom: 2rem;
+
+                    svg {
+                        height: 2rem;
+                        width: 2rem;
+                        fill: $primary-color;
+                        border-radius: 50%;
+                        padding: 1rem;
+                    }
+                }        
+            }
+            
+            .footer-newsletter {
+
+                .newsletter {
+                    padding: 3rem;
+                    
+                    .footer-newsletter-text {
+                        padding: 1rem 0;
+                        font-size: 1.5rem;
+                    }
+
+                    .footer-email {
+                        form {
+                            button {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }      
+            
+        }
+
+
+    }
+
+    @media (orientation:portrait) {
+        main {
+            min-height: calc(100vh - 286px);
+        }
+    }
+}
+
+.front-black {
+    main {
+        background-image: url('../../imgs/blackGoldBg.png');
+        background-size: cover;
+        background-position: center;
+        color: $white-color;
+
+        li a {
+            color: $white-color;
+        }
+    }
+}
+
+.front-white {
+    main {
+        background-image: url('../../imgs/dressBackground.png');
+        background-size: cover;
+        background-position: center;
+        color: $black-color;
+        box-sizing: border-box;
+
+        li a {
+            color: $black-color;
+        }
+    }
+    
+}
+
+
+.admin {
+    font-family: "Inter", sans-serif;
+    background-color: $main-bg;
+    color: $main-color;
+    box-sizing: border-box;
+
+
+    .fade-in-2 {
+        opacity: 0; 
+        animation: fadeInAnimation 2s ease-in forwards;
+    }
+
+    @keyframes fadeInAnimation {
+        to {
+            opacity: 1;
+        }
+    }
+    
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .container {
+        display: flex;
+        overflow-y: auto;
+        min-height: 82vh;
+        box-sizing: border-box;
+        max-width: 100vw;
+
+        .menuContainer {
+            padding: 5px 20px;
+            border-right: 2px solid $soft-bg;
+            box-sizing: border-box;
+        
+            @include lg{
+                max-width: max-content;
+            }
+
+            @include sm{
+                padding: 0;
+            }
+        }
+        
+        .contentContainer {
+            padding: 5px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+
+            .pageContainer {
+                box-sizing: border-box;
+
+                .info{
+                    display: block;
+                    align-items: center;
+                    gap: 20px;
+            
+                    button {
+                    display: block;
+                    align-items: center;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 10px;
+                    margin: -0.5rem 0 1rem 0;
+                
+                    &:hover {
+                        background-color: $soft-bg;
+                        color: white;
+                        cursor: pointer;
+                    }
+                
+                    .listItemTitle{
+                        @include lg{
+                        display: none;
+                        }
+                    }
+                    }
+                }
+            }
+
+            @include sm{
+                padding: 5px;
+            }
+        }
+
+        @media (orientation: portrait) and (max-width: 768px) {
+            
+        }
+        
+    }
+    
+    
+    
+    .error-message {
+        padding: 0.5rem !important;
+        margin: 1rem auto;
+        text-align: center;
+        border-radius: 5px;
+        color: red;
+        background-color: rgba($color: $soft-bg, $alpha: 0.2);
+        border: 1px solid $soft-bg;
+    }
+}
+
+/* transitions */
+
+.fade-in-transition {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.item .css-b62m3t-container {
+    
+    color: #000000 !important;
+}
+
+#react-select-2-listbox {
+    background-color: white;
+    color: #000000 !important;
+}

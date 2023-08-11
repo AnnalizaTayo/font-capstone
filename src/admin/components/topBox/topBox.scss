@@ -1,0 +1,52 @@
+@import "../../../assets/styles/global/responsive.scss";
+
+.topBox {
+  box-sizing: border-box;
+  h1 {
+    margin-bottom: 20px;
+
+    @include xxl{
+      font-size: 24px;
+    }
+  }
+
+  .list {
+    .listItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+
+      .user {
+        display: flex;
+        gap: 20px;
+
+        img {
+          display: none;
+
+          @include xxl{
+            display: none;
+          }
+          @include lg{
+            display: block;
+          }
+        }
+
+        .userTexts {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .email {
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .amount {
+        font-weight: 500;
+      }
+    }
+  }
+}

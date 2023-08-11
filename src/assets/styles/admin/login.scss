@@ -1,0 +1,139 @@
+@import '../global/globalColors.scss';
+@import '../global/responsive.scss';
+
+.auth {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    background-color: $dark-color;
+    color: $primary-color;
+    background-image: url("../../imgs/blackGoldBg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .content {
+        isolation: isolate;
+        .authSquareTilt {
+            transform: rotate(170deg);
+            transform-origin: center center;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .authSquareTilt, .card {
+            width: 300px;
+            height: 350px;
+            border-image: linear-gradient(120deg, #a76433, #e48746, #f6d79a, #f4dba5, #d19f60, #fdf2cc, #e48746, #f6d79a, #f4dba5, #d19f60, #fdf2cc);
+            border-image-slice: 1;
+            border-width: 0.95rem;
+            border-style: solid;
+            opacity: 0;
+            transition: ease-in;
+            animation: fadeIn 2s ease-in forwards;
+            padding: 1.75rem;
+        }
+
+        .card {
+
+            .card-title {
+                text-align: center;
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            p {                    
+                margin-bottom: 1rem;
+            }
+
+            .form-group {
+                position: relative; /* Add this line to make the eye-icon positioning relative to this element */
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.5rem;
+
+                label {
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+
+                input {
+                    padding: 10px;
+                    border: 1px solid #1c1c1c;
+                    border-radius: 5px;
+                    outline: none;
+
+                    &:focus {
+                    border-color: #D4AF37;
+                    }
+                }
+
+                .eye-icon {
+                    position: absolute;
+                    right: 10px;
+                    top: 75%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    font-size: 20px;
+                    color: #777;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: #D4AF37;
+                color: #1c1c1c;
+                font-size: 1rem;
+                font-weight: bold;
+                margin: 1rem auto;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #1c1c1c;
+                    color: #D4AF37;
+                }
+            }
+            
+        }
+
+        @include sm {
+            .authSquareTilt, .card {
+                width: 200px;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 414px) {
+            margin-top: 7rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (orientation: landscape) and (max-height: 375px) {
+            margin-top: 8.5rem;
+        }
+        
+        @media (orientation: landscape) and (max-height: 360px) {
+            margin-top: 10rem;
+        }
+        
+        @media (orientation: landscape) and (max-height: 280px) {
+            margin-top: 15rem;
+        }
+
+        @media (max-width: 280px) {
+            .authSquareTilt, .card {
+                width: 125px;
+            }
+        }
+        
+    }
+}
