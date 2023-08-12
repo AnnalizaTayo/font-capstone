@@ -133,9 +133,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  margin-right: 5%;
   margin-top: 5%;
-
+  text-align: center;
+  margin-right: 0 !important;
 }
 
 .gallery-wrapper #h1Gal h1{
@@ -272,5 +272,15 @@
   }
   .gallery-wrapper{
     height: auto;
+  }
+}
+
+@media (max-width: 992px){
+  .gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-right: 5%;
+    margin-top: 5%;  
   }
 }
