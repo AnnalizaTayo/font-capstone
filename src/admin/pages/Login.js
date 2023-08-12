@@ -31,7 +31,7 @@ const Login = () => {
 
   const fetchCompanyData = async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_API+'/company/info'); // Change the URL to your API endpoint
+      const response = await fetch('/company/info'); // Change the URL to your API endpoint
       const companyData = await response.json();
 
       // Dispatch action to store the company data in Redux
@@ -44,7 +44,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await fetch(process.env.REACT_APP_API+'/users/login', {
+        const response = await fetch('/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

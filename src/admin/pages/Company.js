@@ -9,8 +9,8 @@ const Company = () => {
   const { companyData, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   
-  const logoURL = process.env.REACT_APP_API+'/company/logo';
-  const highlightURL = process.env.REACT_APP_API+'/company/highlight';
+  const logoURL = '/company/logo';
+  const highlightURL = '/company/highlight';
 
   useEffect(() => {
     if (!isAuthenticated) {

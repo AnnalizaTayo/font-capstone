@@ -7,7 +7,7 @@ const TopBox = () => {
 
   // Fetch latest subscribers from your API when the component mounts
   useEffect(() => {
-    fetch(process.env.REACT_APP_API + '/subs/latest') // Replace with the appropriate API endpoint
+    fetch('/subs/latest') // Replace with the appropriate API endpoint
       .then((response) => response.json())
       .then((data) => setLatestSubscribers(data))
       .catch((error) => console.error("Error fetching data:", error));

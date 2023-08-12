@@ -67,7 +67,7 @@ const Collections = () => {
   // Function to fetch data from the server and format it
   const fetchDataFromServer = async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_API+'/faqs');
+      const response = await fetch('/faqs');
       const jsonResponse  = await response.json();
 
       console.log('jsonData:', jsonResponse ); // Check the response here
@@ -106,7 +106,7 @@ const Collections = () => {
     try {
       // Send the delete request to the backend using axios
       console.log(faqsId);
-      await axios.delete(`${process.env.REACT_APP_API}/faqs/${faqsId}`, );
+      await axios.delete(`/faqs/${faqsId}`, );
 
       setData((prevData) => prevData.filter((item) => item.id !== faqsId));
     } catch (error) {
@@ -119,7 +119,7 @@ const Collections = () => {
     setError('');
     setFormData({});
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API}/faqs/${faqsId}`);
+      const response = await axios.get(`/faqs/${faqsId}`);
 
       console.log('this is the fetched data',response.data);
 
@@ -163,7 +163,7 @@ const Collections = () => {
       faqsData.append("answer", formData.description);
       
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API}/faqs/${faqsId}`, faqsData);
+      const response = await axios.put(`/faqs/${faqsId}`, faqsData);
       // Handle the response as needed
       
       console.log('Faqs updated:', response.data);
@@ -186,7 +186,7 @@ const Collections = () => {
       console.log(formData);      
 
       // Send the data to the backend using axios
-      await axios.post(process.env.REACT_APP_API+'/faqs', formData);
+      await axios.post('/faqs', formData);
 
       setFormData({});
       setUploading(false);

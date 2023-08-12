@@ -13,7 +13,7 @@ const Navbar = () => {
   const [faviconUrl, setFaviconUrl] = useState('');
 
   useEffect(() => {
-    setFaviconUrl(process.env.REACT_APP_API+'/company/favicon');
+    setFaviconUrl('/company/favicon');
   }, []); // Only run the effect once, when the component mounts
 
   return (

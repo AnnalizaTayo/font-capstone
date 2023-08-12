@@ -12,7 +12,7 @@ export default function ClientFooter() {
     const [companyContact, setCompanyContact] = useState(null);
 
     const checkData = async() => {
-        await fetch(`${process.env.REACT_APP_API}/company/info-noimages`)
+        await fetch(`/company/info-noimages`)
             .then(response => {
                 if (!response.ok) {
                 throw new Error('Network response was not ok');

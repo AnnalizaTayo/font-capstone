@@ -8,7 +8,7 @@ export default function FadeInContent({ children }) {
         const storedData = sessionStorage.getItem('myJsonData');
     
         if (!storedData) {
-            fetch(`https://houseofj-api.onrender.com/company/info-noimages`)
+            fetch(`/company/info-noimages`)
                 .then(response => {
                     if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -29,7 +29,7 @@ export default function FadeInContent({ children }) {
             const content = document.querySelector('.fade-in-transition');
             if (content) {
                 content.style.opacity = '1';
-                fetch(`https://houseofj-api.onrender.com/views`, { credentials: 'include' }) 
+                fetch(`/views`, { credentials: 'include' }) 
                     .then(response => response.text())
                     .then(data => {
                         console.log(data); // Display the page view count in the console

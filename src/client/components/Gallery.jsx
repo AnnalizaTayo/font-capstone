@@ -12,7 +12,7 @@ function Gallery() {
     
     
     useEffect(() => {        
-        fetch(`${process.env.REACT_APP_API}/products/allproductids`)
+        fetch(`/products/allproductids`)
             .then(response => response.json())
             .then(data => {
                 const ids = data.products.map(product => product._id);
@@ -40,7 +40,7 @@ function Gallery() {
             
             <div className='gallery'>
                     {productIds.map((productId, index) =>{
-                        const imgSrc = `${process.env.REACT_APP_API}/products/products-image/${productId}`;
+                        const imgSrc = `/products/products-image/${productId}`;
                         console.log(imgSrc);
                         return(
                             <div className='images' key={index} onClick={() => getImg(imgSrc)} >

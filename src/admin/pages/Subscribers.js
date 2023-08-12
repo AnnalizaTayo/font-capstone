@@ -32,14 +32,14 @@ const Employees = () => {
   }, [isAuthenticated, navigate]);
       
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/subs`)
+    fetch(`/subs`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching users:', error));
   },[]);
 
   const handleRefresh = async() => {
-    fetch(`${process.env.REACT_APP_API}/subs`)
+    fetch(`/subs`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching users:', error));

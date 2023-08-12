@@ -5,8 +5,8 @@ import '../../assets/styles/client/home.scss';
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
   //const [isDoNotShow, setIsDoNotShow] = useState(false);
-  const logoUrl = process.env.REACT_APP_API+'/company/logo';
-  const highlightUrl = process.env.REACT_APP_API+'/company/highlight';
+  const logoUrl = '/company/logo';
+  const highlightUrl = '/company/highlight';
   
   useEffect(() => {
     const donotshow = sessionStorage.getItem('donotshowModal');

@@ -2,7 +2,7 @@ import { FaUserAlt } from 'react-icons/fa';
 
 
 export const fetchSubscriberData = async() => {
-    return fetch(process.env.REACT_APP_API + '/subs/total')
+    return fetch('/subs/total')
         .then(response => response.json())
         .then(data => {
             const dailyData = data.chartData; // Assuming this property holds your daily subscriber data

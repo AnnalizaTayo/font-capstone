@@ -45,9 +45,10 @@ const Employees = () => {
   const [uploading, setUploading] = useState(false);
   const [data, setData] = useState([]);
   const [isUpdate , setIsUpdate] = useState(false);
+  // eslint-disable-next-line
   const [faqs, setFaqs] = useState(null);
   const [faqsId, setFaqsId] = useState('');
-  const { isAuthenticated , userRole } = useAuth();
+  const { isAuthenticated  } = useAuth();
   const [isError, setError] = useState();
   const navigate = useNavigate();
   
@@ -64,14 +65,14 @@ const Employees = () => {
   };
       
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/faqs`)
+    fetch(`/faqs`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching faqs:', error));
   },[]);
 
   const handleRefresh = async() => {
-    fetch(`${process.env.REACT_APP_API}/faqs`)
+    fetch(`/faqs`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching faqs:', error));
@@ -87,10 +88,10 @@ const Employees = () => {
     try {
       // Send the delete request to the backend using axios
       console.log(faqsId);
-      await axios.delete(`${process.env.REACT_APP_API}/faqs/${faqsId}`, );
+      await axios.delete(`/faqs/${faqsId}`, );
 
       setData((prevData) => prevData.filter((item) => item.id !== faqsId));
-      fetch(`${process.env.REACT_APP_API}/faqs`)
+      fetch(`/faqs`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error('Error fetching faqs:', error));
@@ -103,8 +104,8 @@ const Employees = () => {
     setError('');
     setIsUpdate(true);
     try {
-      console.log(`${process.env.REACT_APP_API}/faqs/${faqsId}`);
-      const response = await axios.get(`${process.env.REACT_APP_API}/faqs/${faqsId}`);
+      console.log(`/faqs/${faqsId}`);
+      const response = await axios.get(`/faqs/${faqsId}`);
       if (response.data) {
         setFaqs(response.data.faqs);
         // Set default form data based on the selected faqs's data
@@ -129,7 +130,7 @@ const Employees = () => {
       console.log(`User TO BE UPDATED: ${faqsId}`);
       setUploading(true);
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API}/faqs/${faqsId}`, formData);
+      const response = await axios.put(`/faqs/${faqsId}`, formData);
       // Handle the response as needed
       console.log('User updated:', response.data);
     } catch (error) {
@@ -139,7 +140,7 @@ const Employees = () => {
     setUploading(false);
     setOpen(false);
 
-    fetch(`${process.env.REACT_APP_API}/faqs`)
+    fetch(`/faqs`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error('Error fetching faqs:', error));
@@ -165,7 +166,7 @@ const Employees = () => {
       console.log('Form Data before submission:', faqsData);
 
       // Send the data to the backend using axios
-      await axios.post(`${process.env.REACT_APP_API}/faqs/${faqsId}`, formData);
+      await axios.post(`/faqs/${faqsId}`, formData);
 
       console.log('New entry added:', formData);
     } catch (error) {

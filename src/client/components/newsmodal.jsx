@@ -36,7 +36,7 @@ const NewsModal = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_API}/subs`, {
+      const response = await fetch(`/subs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

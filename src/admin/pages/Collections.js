@@ -81,6 +81,7 @@ const Collections = () => {
   const [uploading, setUploading] = useState(false);
   const [data, setData] = useState([]);
   const [isUpdate , setIsUpdate] = useState(false);
+  // eslint-disable-next-line
   const [product, setProduct] = useState(null);
   const [prodId, setProdId] = useState('');
   const [isError, setError] = useState();
@@ -107,7 +108,7 @@ const Collections = () => {
   // Function to fetch data from the server and format it
   const fetchDataFromServer = async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_API+'/products/allproducts');
+      const response = await fetch('/products/allproducts');
       const jsonResponse  = await response.json();
 
       console.log('jsonData:', jsonResponse ); // Check the response here
@@ -116,7 +117,7 @@ const Collections = () => {
       if (jsonResponse.products && Array.isArray(jsonResponse.products)) {
         const formattedData = jsonResponse.products.map((item) => ({
           id: item._id,
-          productImg: process.env.REACT_APP_API + '/products/products-thumbnail/' + item._id,
+          productImg: '/products/products-thumbnail/' + item._id,
           productName: item.productName,
           color: item.color,
           description: item.description,
@@ -148,9 +149,8 @@ const Collections = () => {
     try {
       // Send the delete request to the backend using axios
       console.log(productId);
-      await axios.delete(`${process.env.REACT_APP_API}/products/delete-product/${productId}`);
-      // After successful deletion, you can update the data in the state to reflect the change.
-      // For example, you can remove the deleted product from the 'data' state array.
+      await axios.delete(`/products/delete-product/${productId}`);
+      
       setData((prevData) => prevData.filter((item) => item.id !== productId));
     } catch (error) {
       console.error("Failed to Delete", error);
@@ -161,7 +161,7 @@ const Collections = () => {
     setIsUpdate(true);
         setError('');
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API}/products/product-noimage/${productId}`);
+      const response = await axios.get(`/products/product-noimage/${productId}`);
       if (response.data) {
 
         setProduct(response.data);
@@ -197,7 +197,7 @@ const Collections = () => {
       productData.append("productImg", formData.productImg);
       
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API}/products/update-product/${prodId}`, productData);
+      const response = await axios.put(`/products/update-product/${prodId}`, productData);
       // Handle the response as needed
       
       console.log('Product updated:', response.data);
@@ -224,7 +224,7 @@ const Collections = () => {
       productData.append("productImg", formData.productImg);
 
       // Send the data to the backend using axios
-      await axios.post(process.env.REACT_APP_API+'/products/create-product', productData);
+      await axios.post('/products/create-product', productData);
 
       setFormData({});
       setUploading(false);

@@ -82,6 +82,7 @@ const Employees = () => {
   const [uploading, setUploading] = useState(false);
   const [data, setData] = useState([]);
   const [isUpdate , setIsUpdate] = useState(false);
+  // eslint-disable-next-line
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState('');
   const { isAuthenticated , userRole } = useAuth();
@@ -101,14 +102,14 @@ const Employees = () => {
   };
       
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/users`)
+    fetch(`/users`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching users:', error));
   },[]);
 
   const handleRefresh = async() => {
-    fetch(`${process.env.REACT_APP_API}/users`)
+    fetch(`/users`)
     .then(response => response.json())
     .then(data => setData(data))
     .catch(error => console.error('Error fetching users:', error));
@@ -128,9 +129,9 @@ const Employees = () => {
     try {
       // Send the delete request to the backend using axios
       console.log(userId);
-      await axios.delete(`${process.env.REACT_APP_API}/users/${userId}`);
+      await axios.delete(`/users/${userId}`);
       setData((prevData) => prevData.filter((item) => item.id !== userId));
-      fetch(`${process.env.REACT_APP_API}/users`)
+      fetch(`/users`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error('Error fetching users:', error));
@@ -143,8 +144,8 @@ const Employees = () => {
     setError('');
     setIsUpdate(true);
     try {
-      console.log(`${process.env.REACT_APP_API}/users/${userId}`);
-      const response = await axios.get(`${process.env.REACT_APP_API}/users/${userId}`);
+      console.log(`/users/${userId}`);
+      const response = await axios.get(`/users/${userId}`);
       if (response.data) {
         setUser(response.data.user);
         // Set default form data based on the selected user's data
@@ -171,7 +172,7 @@ const Employees = () => {
       console.log(`User TO BE UPDATED: ${userId}`);
       setUploading(true);
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API}/users/${userId}`, formData);
+      const response = await axios.put(`/users/${userId}`, formData);
       // Handle the response as needed
       console.log('User updated:', response.data);
     } catch (error) {
@@ -181,7 +182,7 @@ const Employees = () => {
     setUploading(false);
     setOpen(false);
 
-    fetch(`${process.env.REACT_APP_API}/users`)
+    fetch(`/users`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error('Error fetching users:', error));
@@ -215,7 +216,7 @@ const Employees = () => {
       console.log('Form Data before submission:', userData);
 
       // Send the data to the backend using axios
-      await axios.post(`${process.env.REACT_APP_API}/users`, formData);
+      await axios.post(`/users`, formData);
 
       console.log('User added:', formData);
     } catch (error) {
@@ -226,7 +227,7 @@ const Employees = () => {
     setUploading(false);
     setOpen(false);
 
-    fetch(`${process.env.REACT_APP_API}/users`)
+    fetch(`/users`)
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching users:', error));

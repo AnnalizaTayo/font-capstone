@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
+// eslint-disable-next-line
 import { RiDeleteBin5Fill, RiEditFill } from 'react-icons/ri';
 import useAuth from "../../utils/useAuth";
 //import { Link } from "react-router-dom";

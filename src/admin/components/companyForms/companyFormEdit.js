@@ -115,7 +115,7 @@ const CompanyEditForm = () => {
         
         console.log(...formData);
         // Send the updated company data to the backend API
-        axios.put(process.env.REACT_APP_API+'/company/update', formData)
+        axios.put('/company/update', formData)
         .then((response) => {
             const data = response.data;
             console.log('Company updated successfully:', data.company);

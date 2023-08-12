@@ -8,7 +8,7 @@ const Faqs = () => {
 
   useEffect(() => {
     // Fetch data from MongoDB through your backend API
-    fetch(`${process.env.REACT_APP_API}/faqs`)
+    fetch(`/faqs`)
       .then(response => response.json())
       .then(data => setFaqs(data))
       .catch(error => console.error('Error fetching FAQ data:', error));

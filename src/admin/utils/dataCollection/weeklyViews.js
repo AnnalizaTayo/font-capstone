@@ -1,7 +1,7 @@
 import { BsEye } from 'react-icons/bs';
 
 export const fetchWeeklyView = async() => {
-    return fetch(process.env.REACT_APP_API + '/views/weekly-page-views')
+    return fetch('/views/weekly-page-views')
         .then(response => response.json())
         .then(data => {
             const dailyData = data.chartData; // Assuming this property holds your daily subscriber data

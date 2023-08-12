@@ -1,7 +1,7 @@
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 export const fetchWeeklyVisit = async() => {
-    return fetch(process.env.REACT_APP_API + '/views/weekly-visit-counts')
+    return fetch('/views/weekly-visit-counts')
         .then(response => response.json())
         .then(data => {
             const dailyData = data.chartData; // Assuming this property holds your daily subscriber data
